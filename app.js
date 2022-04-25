@@ -170,32 +170,112 @@ console.log('Matching id to serving count: ', answerThree)
 
 //4. Create a function that will return only dishes whose serving count is even.
 //Filter
+function problemFour(){
+    let results = dishes.filter(function(el){
+        if(el.servings % 2 === 0){
+            return true;
+        }
+        else{
+            return false
+        }})
+    return results;
+}
+
+let answerFour = problemFour();
+console.log(`Serving count is Even: `, answerFour)
 
 //5. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
 //Filter
+function problemFive(){
+    let results = dishes.filter(function(el){
+        if(el.ingredients.includes("chickpea") == true){
+            return true;
+        }
+        else{
+            return false;
+        }})
+    return results;
+}
 
+let answerFive = problemFive();
+console.log('Dishes with chickpea: ', answerFive)
 
 //6a. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
 // BONUS: (come back to this after finishing all)
 //6b. Use the filter method to eliminate duplicates, leaving only distinct values in the array
+function problemSix(){
+    let results = dishes.map(function(el){
+        return el.cuisine
+    })
+    return results
+}
+  
+let answerSix = problemSix();
+console.log(`cuisine types: `, answerSix)
+
 
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map 
-
+function problemSeven(){
+    let results = dishes.map(function(el){
+        return el.cuisine + ' ' + el.name
+    })
+    return results
+}
+let answerSeven = problemSeven();
+console.log('New order: ', answerSeven)
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. So this function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
-
+function problemEight(){
+    let results = dishes.filter(function(el){
+        if(el.cuisine === "Vegetarian"){
+            return true;
+        }
+        else{
+            return false
+        }})
+        result = results.map(function(el){
+            return el.cuisine + ' ' + el.name
+    
+    })
+    return result;
+}    
+let answerEight = problemEight();
+console.log('New order filtered: ', answerEight)
 
 //BONUS
 
-//5. Create a function that will return dishes whose ingredients array INCLUDES "tomato" OR "cheese".
+//9. Create a function that will return dishes whose ingredients array INCLUDES "tomato" OR "cheese".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
 //Filter
+function problemNine(){
+    let results = dishes.filter(function(el){
+        if(el.ingredients.includes("tomato") || el.ingredients.includes("cheese")){
+            return true;
+        }
+        else{
+            return false;
+        }})
+    return results
+}
+let answerNine = problemNine();
+console.log('Dishes with tomato or cheese: ', answerNine)
 
 //10. Create a function that will return the total serving count of all dishes.
 //Must use Reduce, not a loop.
-
+function problemTen(){
+    let total = dishes.reduce(function(sum, item){ 
+        return sum + item.servings; 
+    }, 0)
+    return total
+}    
+let answerTen = problemTen();
+console.log(`Total dishes:` ,answerTen )
 //11. Create a function that will return an array of any objects that do not share a cuisine type with any other objects.
+function problemEleven() {
 
+  
+  let answerEleven = problemEleven()
+  console.log(`Lonely dish: `, answerEleven)
